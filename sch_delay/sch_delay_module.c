@@ -36,6 +36,7 @@
 #include <linux/ktime.h>
 #include <linux/string.h>
 #include <linux/rbtree.h>
+#include <linux/version.h>
 
 #include <net/netlink.h>
 #include <net/pkt_sched.h>
@@ -345,8 +346,13 @@ static int delay_init(struct Qdisc *sch, struct nlattr *opt, struct netlink_ext_
     if((alloc_chrdev_region(&qdisc_data->chr_dev_majour_num, 0, 1, qdisc_data->chr_dev_name)) < 0) {
         printk(KERN_ALERT "sch_delay %s: failed to allocate majour number\n", qdisc_data->net_dev_name);
     }
-    
+
+#if LINUX_VERSION_CODE <= KERNEL_VERSION(6,4,0)
+    qdisc_data->dev_class = class_create(THIS_MODULE, qdisc_data->chr_dev_name);
+#else
     qdisc_data->dev_class = class_create(qdisc_data->chr_dev_name);
+#endif
+    
     if(IS_ERR(qdisc_data->dev_class)) {
         printk(KERN_ALERT "sch_delay %s: failed to create struct class for device\n", qdisc_data->net_dev_name);
     }
