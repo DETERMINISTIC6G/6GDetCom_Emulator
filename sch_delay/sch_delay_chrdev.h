@@ -17,6 +17,9 @@
  * along with NetworkDelayEmulator. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef SCH_DELAY_CHRDEV_H
+#define SCH_DELAY_CHRDEV_H
+
 #include <linux/init.h>
 #include <linux/types.h>
 #include <linux/kernel.h>
@@ -40,6 +43,4 @@ int sch_delay_device_open(struct inode *inode, struct file *file);
 
 int sch_delay_device_release(struct inode *inode, struct file *file);
 
-
-
-
+#endif

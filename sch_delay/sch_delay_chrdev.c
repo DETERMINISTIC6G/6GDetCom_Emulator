@@ -20,7 +20,7 @@
  */
 
 #include "sch_delay_chrdev.h"
-#include "sch_delay.h"
+#include "sch_delay_module.h"
 
 #include <linux/init.h>
 #include <linux/types.h>

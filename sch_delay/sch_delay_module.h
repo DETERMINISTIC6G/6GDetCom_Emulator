@@ -17,6 +17,9 @@
  * along with NetworkDelayEmulator. If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef SCH_DELAY_MODULE_H
+#define SCH_DELAY_MODULE_H
+
 #include <linux/pkt_sched.h>
 #include <linux/skbuff.h>
 #include <linux/kfifo.h>
@@ -71,5 +74,4 @@ struct delay_skb_cb {
     signed long long earliest_send;
 };
 
-
-
+#endif

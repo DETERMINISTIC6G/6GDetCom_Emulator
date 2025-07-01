@@ -19,7 +19,7 @@
  * along with NetworkDelayEmulator. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "sch_delay.h"
+#include "sch_delay_module.h"
 #include "sch_delay_chrdev.h"
 
 #include <linux/init.h>

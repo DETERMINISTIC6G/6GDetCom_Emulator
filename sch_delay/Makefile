@@ -2,7 +2,7 @@ CONFIG_MODULE_SIG=n
 
 obj-m += sch_delay.o
 
-sch_delay-objs+= ./src/sch_delay.o ./src/sch_delay_chrdev.o 
+sch_delay-objs+= sch_delay_module.o sch_delay_chrdev.o 
 
 all:
 	mkdir -p ./build/
