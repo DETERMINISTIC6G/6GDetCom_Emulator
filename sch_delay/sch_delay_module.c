@@ -346,7 +346,7 @@ static int delay_init(struct Qdisc *sch, struct nlattr *opt, struct netlink_ext_
         printk(KERN_ALERT "sch_delay %s: failed to allocate majour number\n", qdisc_data->net_dev_name);
     }
     
-    qdisc_data->dev_class = class_create(THIS_MODULE, qdisc_data->chr_dev_name);
+    qdisc_data->dev_class = class_create(qdisc_data->chr_dev_name);
     if(IS_ERR(qdisc_data->dev_class)) {
         printk(KERN_ALERT "sch_delay %s: failed to create struct class for device\n", qdisc_data->net_dev_name);
     }
