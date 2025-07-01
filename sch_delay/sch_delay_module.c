@@ -42,7 +42,7 @@
 #include <net/pkt_sched.h>
 #include <net/inet_ecn.h>
 
-#define VERSION "0.1"
+#define VERSION "0.1.1"
 
 #define DEVICE_PREFIX "sch_delay/"
 #define DELAY_FIFO_ELEMENTS 512000
