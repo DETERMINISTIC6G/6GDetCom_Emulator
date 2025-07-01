@@ -325,16 +325,16 @@ static int delay_init(struct Qdisc *sch, struct nlattr *opt, struct netlink_ext_
     struct delay_qdisc_data *qdisc_data = qdisc_priv(sch);
     struct net_device *dev = qdisc_dev(sch);
 
-    strlcpy(qdisc_data->net_dev_name, dev->name, MAX_DEVNAME_LEN);
+    strscpy(qdisc_data->net_dev_name, dev->name, MAX_DEVNAME_LEN);
 
     status = kfifo_alloc(&qdisc_data->delay_queue, DELAY_FIFO_SIZE, GFP_KERNEL);
 
     qdisc_watchdog_init(&qdisc_data->watchdog, sch);
     qdisc_data->chr_dev_open_count = 0;
 
-    strlcpy(qdisc_data->chr_dev_name, DEVICE_PREFIX, MAX_DEVNAME_LEN);
+    strscpy(qdisc_data->chr_dev_name, DEVICE_PREFIX, MAX_DEVNAME_LEN);
     size_t offs = strlen(qdisc_data->chr_dev_name);
-    strlcpy(qdisc_data->chr_dev_name+offs, dev->name, MAX_DEVNAME_LEN-offs);
+    strscpy(qdisc_data->chr_dev_name+offs, dev->name, MAX_DEVNAME_LEN-offs);
 
     unsigned int h_min = TC_H_MIN(sch->handle);
     unsigned int h_maj = TC_H_MAJ(sch->handle) >> 16; 
