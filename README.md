@@ -38,7 +38,8 @@ The project is structured as follows:
 
 ## Prerequisites
 
-The following instructions apply to Debian 12.5.0 with kernel 6.1.0-21-amd64. However, other Linux distributions should work too.
+The following instructions have been tested on Debian 12.5.0 with kernel 6.1.0-21-amd64.
+The module has also been tested on other kernel versions up to kernel 6.15, and it might work on newer kernels.
 
 Install basic tools to build the kernel module and to execute the user-space app:
 
